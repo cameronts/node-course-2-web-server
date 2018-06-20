@@ -9,9 +9,9 @@ hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
 
 // above all other handlers so don't even get public static files
-app.use ((req, res, next) => {
-  res.render('maintenance.hbs');
-});
+// app.use ((req, res, next) => {
+//   res.render('maintenance.hbs');
+// });
 
 
 app.use(express.static(__dirname + '/public'));
@@ -50,6 +50,14 @@ app.get('/about', (req, res) => {
   // res.send('about page');
   res.render('about.hbs', {
     pageTitle: 'About Page'
+  });
+});
+
+app.get('/projects', (req, res) => {
+  // res.send('about page');
+  res.render('projects.hbs', {
+    pageTitle: 'Projects Page',
+    welcomeMessage: 'Hello!'
   });
 });
 
